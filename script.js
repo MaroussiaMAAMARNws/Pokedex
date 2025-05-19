@@ -1,11 +1,11 @@
-async function Pokedex() {
+const API_URL =" https://pokeapi.co/api/v2/pokemon?limit=20";
+let allPokemons = [];
+
+async function loadPokemons(){
     try {
-        const response = await fetch ("https://pokeapi.co/api/v2/pokemon/20");
-        if (!reponse.ok) throw new Error("Erreur HTTP : " + reponse.status);
-        const data = await reponse.json();
-        console.log(data.name);
+        const res = await fetch(API_URL);
+        const data = await res.json();
+    }catch(e) {
+        console.log ('error');
     }
-    catch (err) {
-        console.error("Problème lors du chargement :", err.message);
-        }
 }
